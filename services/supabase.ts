@@ -1,9 +1,6 @@
 import "react-native-url-polyfill/auto";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "../types/supabase";
-import * as SecureStore from "expo-secure-store";
-import { Platform } from "react-native";
 import Constants from "expo-constants";
 
 const SUPABASE_URL =
@@ -13,59 +10,6 @@ const SUPABASE_ANON_KEY =
 
 if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
   console.error("Missing Supabase configuration. Please check your .env file.");
-}
-
-// Add this helper function at the top of the file
-const isBrowser = () => typeof window !== "undefined";
-
-class ExpoSecureStorageAdapter {
-  async getItem(key: string) {
-    try {
-      console.log("Getting item:", key);
-      if (Platform.OS === "web") {
-        if (!isBrowser()) return null;
-        const value = localStorage.getItem(key);
-        console.log("Got value from localStorage:", value);
-        return value;
-      }
-      const value = await SecureStore.getItemAsync(key);
-      console.log("Got value from SecureStore:", value);
-      return value;
-    } catch (error) {
-      console.error("Error getting item:", error);
-      return null;
-    }
-  }
-
-  async setItem(key: string, value: string) {
-    try {
-      console.log("Setting item:", key, value);
-      if (Platform.OS === "web") {
-        if (!isBrowser()) return;
-        localStorage.setItem(key, value);
-        return;
-      }
-      return await SecureStore.setItemAsync(key, value);
-    } catch (error) {
-      console.error("Error setting item:", error);
-      return;
-    }
-  }
-
-  async removeItem(key: string) {
-    try {
-      console.log("Removing item:", key);
-      if (Platform.OS === "web") {
-        if (!isBrowser()) return;
-        localStorage.removeItem(key);
-        return;
-      }
-      return await SecureStore.deleteItemAsync(key);
-    } catch (error) {
-      console.error("Error removing item:", error);
-      return;
-    }
-  }
 }
 
 // Simplified client without auth
