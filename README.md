@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# Mistral AI Chat
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern chat application built with React Native, Expo, and Mistral AI. This app provides a seamless chat experience with AI-powered responses.
 
-## Get started
+> 🚧 **Development Status**: This project is actively under development. New features and improvements are being added regularly.
 
-1. Install dependencies
+## Tech Stack
+
+- [Expo](https://expo.dev) - React Native framework
+- [Mistral AI](https://mistral.ai) - AI language model
+- [Supabase](https://supabase.com) - Backend and real-time database
+- [React Native](https://reactnative.dev) - Mobile app framework
+- [TypeScript](https://www.typescriptlang.org) - Type safety
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or newer)
+- npm or yarn
+- Expo CLI
+- Supabase account
+- Mistral AI API key
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/VassoD/mistral-ai-chat.git
+   cd mistral-ai-chat
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Create a `.env.local` file in the root directory and add your API keys:
 
-   ```bash
-    npx expo start
+   ```
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_ANON_KEY=your_supabase_anon_key
+   MISTRAL_API_KEY=your_mistral_api_key
    ```
 
-In the output, you'll find options to open the app in a
+4. Start the development server:
+   ```bash
+   npx expo start
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+mistral-ai-chat/
+├── app/                 # Main application screens
+├── components/          # Reusable UI components
+├── services/           # API and backend services
+├── types/              # TypeScript type definitions
+└── utils/              # Helper functions
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contributing
 
-## Learn more
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-To learn more about developing your project with Expo, look at the following resources:
+## License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
